@@ -39,39 +39,41 @@ app.listen(port)
 console.log("Server started on " + port);
 
 
-// app.get("/", function(req, res, next) {
-//   var logged_in;
-//   var email;
+app.get("/", function(req, res, next) {
+  res.render('home/index');
+});
 
-//   if (req.session.user) {
-//     logged_in = true;
-//     email = req.session.user.email;
-//   }
-
-//   var data = {
-//     "logged_in": logged_in,
-//     "email": email
-//   }
-//   res.render('home/index', data);
-// });
-
-// app.get("/subscribe", function(req, res) {
-//   res.render('subscribe/index')
-// });
-
-// app.post('/subscribe', function(req, res) {
+// app.post('/', function(req, res) {
 //   var data = req.body;
 
 //   bcrypt.hash(data.password, 10, function(err, hash) {
 //     db.none(
 //       "INSERT INTO users (email, password_digest) VALUES ($1, $2)", [data.email, hash]
 //     ).then(function() {
-//       res.render('home/index');
+//       res.render('my_account/index');
 //     })
 //   });
 // })
 
-// app.post('/my_account', function(req, res) {
+
+
+app.get("/login", function(req, res) {
+  res.render('login/index')
+});
+
+app.get("/hotel_contact", function(req, res) {
+  res.render('hotel_contact/index')
+});
+
+app.get("/my_account", function(req, res) {
+  res.render('my_account/index')
+});
+
+app.get("/chat", function(req, res) {
+  res.render('chat/index')
+});
+
+// app.post('/login', function(req, res) {
 //   var data = req.body;
 
 //   db.one(
@@ -82,7 +84,7 @@ console.log("Server started on " + port);
 //     bcrypt.compare(data.password, user.password_digest, function(err, cmp) {
 //       if (cmp) {
 //         req.session.user = user;
-//         res.redirect('/home')
+//         res.redirect('/my_account')
 //       } else {
 //         res.send('Email/Password not found.')
 //       }
@@ -90,6 +92,4 @@ console.log("Server started on " + port);
 //   });
 // });
 
-app.get('/', function(req, res){
-  res.send('Hello')
-})
+
