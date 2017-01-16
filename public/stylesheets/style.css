@@ -8,9 +8,12 @@ body{
   background-repeat: no-repeat;
   background-size: cover;
 }
-nav {
+
+.navbar{
+  color: rgb(255,255,255);
   font-family: 'Quicksand', sans-serif;
-  background-color:
+  /* background-color: rgb(29,172,232);
+  border: none; */
 }
 
 h4 {
@@ -44,6 +47,13 @@ form {
 .here {
   font-weight: bold;
 }
+
+/* .m-content {
+  text-align: center;
+  position: absolute;
+  top: 20%;
+  left: 35%;
+} */
 
 /* .whitebox {
   background-color: whitesmoke;

@@ -55,7 +55,9 @@ app.get("/", function(req, res, next) {
 //   });
 // })
 
-
+app.get("/about", function(req, res) {
+  res.render('about/index')
+});
 
 app.get("/login", function(req, res) {
   res.render('login/index')
