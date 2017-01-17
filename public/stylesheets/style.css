@@ -1,25 +1,26 @@
 body{
-  background:
-  linear-gradient(
-      rgba(255, 0, 0, 0.45),
-      rgba(255, 0, 0, 0.45)
-  )
+  background-image:
   url(background.jpg);
-  background-repeat: no-repeat;
+/*   background-repeat: no-repeat; */
   background-size: cover;
 }
 
 .navbar{
   color: rgb(255,255,255);
   font-family: 'Quicksand', sans-serif;
-  /* background-color: rgb(29,172,232);
-  border: none; */
+  background-color: rgb(29,172,232);
+  border: none;
+}
+
+.navbar a {
+  color: rgb(255,255,255) !important;
+  font-weight: bold;
 }
 
 h4 {
   text-align: center;
   position: absolute;
-  top: 15%;
+  top: 25%;
   left: 35%;
 }
 
@@ -30,33 +31,62 @@ h4 {
 }
 
 form {
-  width: 30%;
+  width: 20%;
   position: absolute;
-  top: 25%;
+  top: 35%;
   left: 35%;
 
 }
 
-.login {
+#talkbubble {
   text-align: center;
   position: absolute;
-  top: 20%;
-  left: 35%;
+  color: white;
+  top: 40%;
+  left: 60%;
+  width: 120px;
+  height: 80px;
+  background: rgba(29,172,232,0.75);
+  /* position: relative; */
+  -moz-border-radius:    10px;
+  -webkit-border-radius: 10px;
+  border-radius:         10px;
 }
+#talkbubble:before {
+   content:"";
+   position: absolute;
+   right: 100%;
+   top: 26px;
+   width: 0;
+   height: 0;
+   border-top: 13px solid transparent;
+   border-right: 26px solid rgba(29,172,232,0.75);
+   border-bottom: 13px solid transparent;
+}
+.talk {
+  position: absolute;
+  top: 13%;
+  left: 3%;
 
+}
 .here {
   font-weight: bold;
+  color: rgb(236,180,57);
 }
 
-/* .m-content {
-  text-align: center;
+#signup{
+  color: white;
+  background-color: rgba(29,172,232,0.75);
+  border: none;
+}
+
+.whitebox {
+  width: 550px;
+  height: 340px;
   position: absolute;
   top: 20%;
-  left: 35%;
-} */
-
-/* .whitebox {
-  background-color: whitesmoke;
-  border-color: whitesmoke;
-} */
+  left: 30%;
+  background: white !important;
+  border-radius: 10px;
+}
 
