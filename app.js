@@ -33,28 +33,136 @@ app.use(session({
 }))
 
 
-// var db = pgp(process.env.DATABASE_URL || 'postgres://marcelasilva@localhost:5432/art_crud');
+var db = pgp(process.env.DATABASE_URL || 'postgres://marcelasilva@localhost:5432/masterkey_crud');
 
 app.listen(port)
 console.log("Server started on " + port);
 
 
-app.get("/", function(req, res, next) {
-  res.render('home/index');
+app.get("/", function(req, res){
+  var logged_in;
+  var email;
+
+  if(req.session.user){
+    logged_in = true;
+    email = req.session.user.email;
+  }
+
+  var data = {
+    "logged_in": logged_in,
+    "email": email
+  }
+
+  res.render('index', data);
 });
 
-// app.post('/', function(req, res) {
-//   var data = req.body;
+app.get("/signup", function(req, res){
+  res.render('signup/index')
+});
 
-//   bcrypt.hash(data.password, 10, function(err, hash) {
-//     db.none(
-//       "INSERT INTO users (email, password_digest) VALUES ($1, $2)", [data.email, hash]
-//     ).then(function() {
-//       res.render('my_account/index');
-//     })
-//   });
-// })
+app.post('/signup', function(req, res){
+  var data = req.body;
+  console.log(data)
+  bcrypt.hash(data.password, 10, function(err, hash){
+     // console.log(data.email);
+     //  console.log(hash);
 
+    db.none(
+      "INSERT INTO users (email, password_digest) VALUES ($1, $2)",
+      [data.email, hash]
+    ).then(function(){
+      console.log('user created');
+      res.render('profile/index', {'users': data});
+    })
+  });
+})
+
+app.post('/login', function(req, res){
+  var data = req.body;
+  console.log(data);
+  db.one(
+    "SELECT * FROM users WHERE email = $1",
+    [data.email]
+  ).catch(function(){
+    res.redirect('notfound')
+  }).then(function(user){
+    console.log(user)
+    bcrypt.compare(data.password, user.password_digest, function(err, cmp){
+      if(cmp){
+        req.session.user = user;
+        res.render('profile/index', {'users': data});
+      } else {
+        console.log('bcrypt failed')
+        res.redirect('notfound');
+      }
+    });
+  });
+});
+
+
+
+app.get("/", function(req, res){
+  var logged_in;
+  var email;
+
+  if(req.session.hotel){
+    logged_in = true;
+    email = req.session.hotel.email;
+  }
+
+  var data = {
+    "logged_in": logged_in,
+    "email": email
+  }
+
+  res.render('index', data);
+});
+
+app.get("/hotel_signup", function(req, res){
+  res.render('hotel_signup/index')
+});
+
+app.post('/hotel_signup', function(req, res){
+  var data = req.body;
+  console.log(data)
+  bcrypt.hash(data.password, 10, function(err, hash){
+     // console.log(data.email);
+     //  console.log(hash);
+
+    db.none(
+      "INSERT INTO hotels (email, password_digest) VALUES ($1, $2)",
+      [data.email, hash]
+    ).then(function(){
+      console.log('hotel created');
+      res.render('hotel_profile/index', {'hotels': data});
+    })
+  });
+})
+
+app.post('/hotel_login', function(req, res){
+  var data = req.body;
+  console.log(data);
+  db.one(
+    "SELECT * FROM hotels WHERE email = $1",
+    [data.email]
+  ).catch(function(){
+    res.redirect('notfound')
+  }).then(function(hotel){
+    console.log(hotel)
+    bcrypt.compare(data.password, hotel.password_digest, function(err, cmp){
+      if(cmp){
+        req.session.hotel = hotel;
+        res.render('hotel_profile/index', {'hotels': data});
+      } else {
+        console.log('bcrypt failed')
+        res.redirect('notfound');
+      }
+    });
+  });
+});
+
+
+//
 app.get("/about", function(req, res) {
   res.render('about/index')
 });
@@ -63,18 +171,43 @@ app.get("/login", function(req, res) {
   res.render('login/index')
 });
 
+app.get("/hotel_login", function(req, res) {
+  res.render('hotel_login/index')
+});
+
+app.get("/hotel_signup", function(req, res) {
+  res.render('hotel_signup/index')
+});
+
 app.get("/hotel_contact", function(req, res) {
   res.render('hotel_contact/index')
 });
 
-app.get("/my_account", function(req, res) {
-  res.render('my_account/index')
+app.get("/hotel_profile", function(req, res) {
+  res.render('hotel_profile/index')
+});
+
+app.get("/profile", function(req, res) {
+  var data = {
+    "logged_in": logged_in,
+    "email": email
+  }
+  res.render('profile/index', data)
+});
+
+app.get("/notfound", function(req, res) {
+  res.render('notfound/index')
 });
 
 app.get("/chat", function(req, res) {
   res.render('chat/index')
 });
 
+app.get('/logout', function(req, res) {
+  req.session.user=null;
+  req.session.hotel=null;
+  res.render('logout/index');
+});
 // app.post('/login', function(req, res) {
 //   var data = req.body;
 

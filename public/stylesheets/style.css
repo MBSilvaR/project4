@@ -1,8 +1,5 @@
-body{
-  background-image:
-  url(background.jpg);
-/*   background-repeat: no-repeat; */
-  background-size: cover;
+body {
+background-color: rgb(242,240,241)
 }
 
 .navbar{
@@ -15,6 +12,14 @@ body{
 .navbar a {
   color: rgb(255,255,255) !important;
   font-weight: bold;
+}
+
+h3 {
+  text-align: center;
+  color: white;
+  position: absolute;
+  top: 25%;
+  left: 35%;
 }
 
 h4 {
@@ -43,7 +48,7 @@ form {
   position: absolute;
   color: white;
   top: 40%;
-  left: 60%;
+  left: 58%;
   width: 120px;
   height: 80px;
   background: rgba(29,172,232,0.75);
@@ -85,8 +90,25 @@ form {
   height: 340px;
   position: absolute;
   top: 20%;
-  left: 30%;
+  left: 28%;
   background: white !important;
+  border-radius: 10px;
+}
+
+.whiteboxbig {
+  width: 900px;
+  height: 600px;
+  position: absolute;
+  top: 10%;
+  left: 15%;
+  background: white !important;
+  border-radius: 10px;
+}
+
+
+.aboutbox {
+  width: 700px;
+  height: 500px;
   border-radius: 10px;
 }
 
