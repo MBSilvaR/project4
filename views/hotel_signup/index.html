@@ -46,27 +46,39 @@
   </div><!-- /.container-fluid -->
 </nav>
 
-<div class="whitebox"></div>
-<h4>Signup as a property</h4>
+<form class="form-horizontal" action="/hotel_signup" method="post">
+<h4>Register to talk to your guests</h4><br><br>
 <div class="talkbubble" id="talkbubble">
-  <p class="talk">Already listed in our site? Please login <a class="here" href="../hotel_login">here</a></p>
-  </div>
-<form action="/hotel_signup" method="post">
+  <p class="talk">Already registered?</p>
+  <p> Please login <a class="here" href="../hotel_login">here</a></p>
+</div>
   <div class="form-group">
-    <label for="exampleInputEmail1">Email address</label>
-    <input name="email" type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+    <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+    <div class="col-sm-10">
+      <input name="email" type="email" class="form-control" id="inputEmail3" placeholder="Email">
+    </div>
   </div>
   <div class="form-group">
-    <label for="exampleInputPassword1">Password</label>
-    <input name="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+    <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+    <div class="col-sm-10">
+      <input  name="password" type="password" class="form-control" id="inputPassword3" placeholder="Password">
+    </div>
   </div>
-  <button type="submit" class="btn btn-default" id="signup">Signup</button><br><br>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <div class="checkbox">
+        <label>
+          <input type="checkbox"> Remember me
+        </label>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" class="btn btn-default">Register</button>
+    </div>
+  </div>
 </form>
-
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <!-- <script src="js/bootstrap.min.js"></script> -->
 
   </body>
 </html>

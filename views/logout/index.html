@@ -45,27 +45,44 @@
   </div><!-- /.container-fluid -->
 </nav>
 
-<div class="whitebox"></div>
-<h4>You logged out</h4>
- <div class="talkbubble" id="talkbubble">
-  <p class="talk">Not a member yet? Please signup <a class="here" href="../signup">here</a></p>
-  </div>
-<form action="/login" method="post">
+<form class="form-horizontal" action="/profile" method="post">
+<h4>You successfully logged out</h4> <br><br>
+<div class="talkbubble" id="talkbubble">
+  <p class="talk">Didn't mean to leave?</p>
+  <p>Login again!</p>
+</div>
   <div class="form-group">
-    <label for="exampleInputEmail1">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+    <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+    <div class="col-sm-10">
+      <input name="email" type="email" class="form-control" id="inputEmail3" placeholder="Email">
+    </div>
   </div>
   <div class="form-group">
-    <label for="exampleInputPassword1">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+    <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+    <div class="col-sm-10">
+      <input  name="password" type="password" class="form-control" id="inputPassword3" placeholder="Password">
+    </div>
   </div>
-  <button type="submit" class="btn btn-default" id="signup">Login</button><br><br>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <div class="checkbox">
+        <label>
+          <input type="checkbox"> Remember me
+        </label>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" class="btn btn-default">Login</button>
+    </div>
+  </div>
 </form>
-
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <!-- <script src="js/bootstrap.min.js"></script> -->
+    <script src="js/bootstrap.min.js"></script>
+>
 
   </body>
 </html>
