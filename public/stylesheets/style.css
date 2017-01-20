@@ -256,6 +256,8 @@ div#controls {
 
     div#controls div#room-controls button#button-leave {
       display: none;
+      background-color: rgba(236,112,99,0.66);
+      border: none;
     }
 
   div#controls div#log {
