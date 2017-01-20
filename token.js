@@ -1,9 +1,9 @@
 var AccessToken = require('twilio').AccessToken;
 
 // Substitute your Twilio AccountSid and ApiKey details
-var ACCOUNT_SID = 'ACc26fff086a652c540aaefc17e6c3bb5b';
-var API_KEY_SID = 'SK3308cf715ae73033133304b229a0cff1';
-var API_KEY_SECRET = 'U3XgLuDmp1NJF3lnrQNGUSQ7zXYXE0Gk';
+var ACCOUNT_SID = process.env.ACCOUNT_SID;
+var API_KEY_SID = process.env.API_KEY_SID;
+var API_KEY_SECRET = process.env.API_KEY_SECRET;
 
 // Create an Access Token
 var accessToken = new AccessToken(

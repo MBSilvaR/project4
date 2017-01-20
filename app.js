@@ -55,12 +55,16 @@ Generate an Access Token for a chat application user - it generates a random
 username for the client requesting a token, and takes a device ID as a query
 parameter.
 */
-app.get('/chat', function(request, response) {
+app.get('/token', function(request, response) {
     var identity = randomUsername();
 
     // Create an access token which we will sign and return to the client,
     // containing the grant we just created
-   //VAR TOKEN
+    var token = new AccessToken(
+        process.env.TWILIO_ACCOUNT_SID,
+        process.env.TWILIO_API_KEY,
+        process.env.TWILIO_API_SECRET
+    );
 
     // Assign the generated identity to the token
     token.identity = identity;
@@ -82,6 +86,10 @@ var db = pgp(process.env.DATABASE_URL || 'postgres://marcelasilva@localhost:5432
 app.listen(port)
 console.log("Server started on " + port);
 
+app.get("/login", function(req, res) {
+  res.render('login/index')
+});
+
 
 app.get("/", function(req, res){
   var logged_in;
@@ -99,6 +107,8 @@ app.get("/", function(req, res){
 
   res.render('index', data);
 });
+
+
 
 app.get("/signup", function(req, res){
   res.render('signup/index')
@@ -183,6 +193,11 @@ app.post('/hotel_signup', function(req, res){
   });
 })
 
+app.get("/hotel_login", function(req, res) {
+  res.render('hotel_login/index')
+});
+
+
 app.post('/hotel_login', function(req, res){
   var data = req.body;
   console.log(data);
@@ -211,17 +226,12 @@ app.get("/about", function(req, res) {
   res.render('about/index')
 });
 
-app.get("/login", function(req, res) {
-  res.render('login/index')
-});
 
 app.get("/signup", function(req, res) {
   res.render('signup4/index')
 });
 
-app.get("/hotel_login", function(req, res) {
-  res.render('hotel_login/index')
-});
+
 
 app.get("/hotel_signup", function(req, res) {
   res.render('hotel_signup/index')
