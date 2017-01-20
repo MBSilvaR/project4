@@ -44,8 +44,7 @@ var path = require('path');
 var AccessToken = require('twilio').AccessToken;
 var VideoGrant = AccessToken.VideoGrant;
 // var express = require('express');
-// var randomUsername = require('./randos');
-var name = email;
+var randomUsername = require('./randos');
 
 
 // var app = express();
@@ -53,7 +52,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 app.get('/token', function(request, response) {
-    var identity = name();
+    var identity = randomUsername();
 
     var token = new AccessToken(
         process.env.TWILIO_ACCOUNT_SID,
