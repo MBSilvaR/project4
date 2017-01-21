@@ -1,8 +1,8 @@
 var ADJECTIVES = [
     'Abrasive', 'Brash', 'Callous', 'Daft', 'Eccentric', 'Fiesty', 'Golden',
-    'Holy', 'Ignominious', 'Joltin', 'Killer', 'Luscious', 'Mushy', 'Nasty',
+    'Holy', 'Ignominious', 'Joltin', 'Killer', 'Luscious', 'Mushy',
     'OldSchool', 'Pompous', 'Quiet', 'Rowdy', 'Sneaky', 'Tawdry',
-    'Unique', 'Vivacious', 'Wicked', 'Xenophobic', 'Yawning', 'Zesty'
+    'Unique', 'Vivacious', 'Wicked', 'Yawning', 'Zesty'
 ];
 
 var FIRST_NAMES = [

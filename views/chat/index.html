@@ -63,15 +63,24 @@
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
   </nav>
+
+<form class="form-horizontal">
+  <div class="col-sm-offset-1 col-sm-10">
+  {{#users}}
+  <h4 class="welcome">Welcome {{email}}!</h4>
+  {{/users}}
+  </div>
+</form>
+
    <div id="remote-media"></div>
   <div id="controls">
     <div id="preview">
-      <p class="instructions">Where are you staying?</p>
+      <p class="instructions">Ready to connect</p>
       <div id="local-media"></div>
       <button id="button-preview">Preview</button>
     </div>
     <div id="room-controls">
-      <p class="instructions">Hotel to visit:</p>
+      <p class="instructions">Access room</p>
       <input id="room-name" type="text" placeholder="Enter a room name" />
       <button id="button-join">Join</button>
       <button id="button-leave">Leave</button>

@@ -119,12 +119,12 @@ app.post('/signup', function(req, res){
       [data.email, hash]
     ).then(function(){
       console.log('user created');
-      res.render('profile/index', {'users': data});
+      res.render('chat/index', {'users': data});
     })
   });
 })
 
-app.post('/profile', function(req, res){
+app.post('/chat', function(req, res){
   var data = req.body;
   console.log(data);
   db.one(
@@ -137,7 +137,7 @@ app.post('/profile', function(req, res){
     bcrypt.compare(data.password, user.password_digest, function(err, cmp){
       if(cmp){
         req.session.user = user;
-        res.render('profile/index', {'users': data});
+        res.render('chat/index', {'users': data});
       } else {
         console.log('bcrypt failed')
         res.redirect('notfound');
@@ -148,70 +148,72 @@ app.post('/profile', function(req, res){
 
 
 
-app.get("/", function(req, res){
-  var logged_in;
-  var email;
+// app.get("/", function(req, res){
+//   var logged_in;
+//   var email;
 
-  if(req.session.hotel){
-    logged_in = true;
-    email = req.session.hotel.email;
-  }
+//   if(req.session.hotel){
+//     logged_in = true;
+//     email = req.session.hotel.email;
+//   }
 
-  var data = {
-    "logged_in": logged_in,
-    "email": email
-  }
+//   var data = {
+//     "logged_in": logged_in,
+//     "email": email
+//   }
 
-  res.render('index', data);
-});
-
-app.get("/hotel_signup", function(req, res){
-  res.render('hotel_signup/index')
-});
-
-app.post('/hotel_signup', function(req, res){
-  var data = req.body;
-  console.log(data)
-  bcrypt.hash(data.password, 10, function(err, hash){
-     // console.log(data.email);
-     //  console.log(hash);
-
-    db.none(
-      "INSERT INTO hotels (email, password_digest) VALUES ($1, $2)",
-      [data.email, hash]
-    ).then(function(){
-      console.log('hotel created');
-      res.render('hotel_profile/index', {'hotels': data});
-    })
-  });
-})
-
-app.get("/hotel_login", function(req, res) {
-  res.render('hotel_login/index')
-});
+//   res.render('index', data);
+// });
 
 
-app.post('/hotel_login', function(req, res){
-  var data = req.body;
-  console.log(data);
-  db.one(
-    "SELECT * FROM hotels WHERE email = $1",
-    [data.email]
-  ).catch(function(){
-    res.redirect('notfound')
-  }).then(function(hotel){
-    console.log(hotel)
-    bcrypt.compare(data.password, hotel.password_digest, function(err, cmp){
-      if(cmp){
-        req.session.hotel = hotel;
-        res.render('hotel_profile/index', {'hotels': data});
-      } else {
-        console.log('bcrypt failed')
-        res.redirect('notfound');
-      }
-    });
-  });
-});
+// app.get("/hotel_signup", function(req, res){
+//   res.render('hotel_signup/index')
+// });
+
+// app.post('/hotel_signup', function(req, res){
+//   var data = req.body;
+//   // console.log(data)
+//   bcrypt.hash(data.password, 10, function(err, hash){
+//      // console.log(data.email);
+//      //  console.log(hash);
+
+//     db.none(
+//       "INSERT INTO hotels (email, password_digest) VALUES ($1, $2)",
+//       [data.email, hash]
+//     ).then(function(){
+//       console.log('hotel created');
+//       res.render('hotel_profile/index', {'hotels': data});
+//     })
+//   });
+// })
+
+// app.get("/hotel_login", function(req, res) {
+//   res.render('hotel_login/index')
+// });
+
+
+// app.post('/hotel_login', function(req, res){
+//   var data = req.body;
+//   console.log(data);
+//   db.one(
+//     "SELECT * FROM hotels WHERE email = $1",
+//     [data.email]
+//   ).catch(function(){
+//     res.redirect('notfound')
+//   }).then(function(hotel){
+//     console.log(hotel)
+//     bcrypt.compare(data.password, hotel.password_digest, function(err, cmp){
+//       if(cmp){
+//         req.session.hotel = hotel;
+//         res.render('hotel_profile/index', {'hotels': data});
+//       } else {
+//         console.log('bcrypt failed')
+//         res.redirect('notfound');
+//       }
+//     });
+//   });
+// });
+
 
 
 //
@@ -226,9 +228,9 @@ app.get("/signup", function(req, res) {
 
 
 
-app.get("/hotel_signup", function(req, res) {
-  res.render('hotel_signup/index')
-});
+// app.get("/hotel_signup", function(req, res) {
+//   res.render('hotel_signup/index')
+// });
 
 app.get("/hotel_contact", function(req, res) {
   res.render('hotel_contact/index')

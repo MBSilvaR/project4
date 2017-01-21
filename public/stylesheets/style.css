@@ -1,10 +1,11 @@
 body {
-background-color: rgb(242,240,241)
+background-color: rgb(242,240,241);
+font-family: "Helvetica Light", Helvetica, sans-serif;
 }
 
 .col-md-6 {
-  color: rgba(236,112,99,0.66);
-  font-family: 'Bowlby One SC', sans-serif;
+  color: rgba(236,112,99,0.66) !important;
+  font-family: 'Bowlby One SC', sans-serif !important;
 }
 
 .text-center {
@@ -29,6 +30,7 @@ background-color: rgb(242,240,241)
   font-weight: bold;
 }
 
+
 h3 {
   text-align: center;
   color: white;
@@ -41,19 +43,23 @@ h4 {
   text-align: center;
 }
 
+
 .navbar-form {
   position: relative;
   top: 0%;
  /*  right: -20%; */
 }
-/*
-form {
-  width: 60%;
-  position: relative;
-  top: 25%;
-  align-items: center;
 
-} */
+.btn-default {
+    width: 15em;
+    height: 2.5em;
+    margin-top: 1.75em;
+    border-radius: 1em;
+    font-family: "Helvetica Light", Helvetica, sans-serif;
+    font-size: .8em;
+    font-weight: lighter;
+    outline: 0;
+}
 
 #talkbubble {
   text-align: center;
@@ -92,6 +98,7 @@ form {
   color: rgb(236,112,99);
 }
 
+
 /* #signup{
   color: white;
   background-color: rgba(29,172,232,0.75);
@@ -103,7 +110,7 @@ form {
   background: white !important;
   border-radius: 10px;
   padding-top: 45px;
-  padding-bottom: 30px;
+  padding-bottom: 30px !important;
   align-items: center;
 }
 
