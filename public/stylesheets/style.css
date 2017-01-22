@@ -98,12 +98,12 @@ h4 {
   color: rgb(236,112,99);
 }
 
-
-/* #signup{
-  color: white;
-  background-color: rgba(29,172,232,0.75);
-  border: none;
-} */
+.welcome{
+  margin-top: -15px;
+  margin-bottom: 20px;
+  font-family: "Helvetica Light", Helvetica, sans-serif;
+  font-weight: lighter;
+}
 
 .form-horizontal {
   top: 20%;
