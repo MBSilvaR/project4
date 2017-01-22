@@ -1,12 +1,12 @@
 # Master🗝key
 
-![project4](http://imgur.com/U2rotlS)
+![project4](http://i.imgur.com/U2rotlS.png)
 
 An online platform that facilitates direct communication between hospitality professionals and their guests.
 
-    Guided hotel rooms’ tours via Twilio video.
+Guided hotel rooms’ tours via Twilio video.
 
-    Useful for:
+**Useful for:**
 
 1. Reservations, Front Desk and Sales departments:
 
@@ -26,8 +26,7 @@ An online platform that facilitates direct communication between hospitality pro
 
 
 
-Technology implemented:
-    
+**Technology implemented:**
     -   Twilio video and chat API
     -   Node.js
     -   Javascript
