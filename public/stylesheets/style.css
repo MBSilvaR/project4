@@ -98,6 +98,12 @@ h4 {
   color: rgb(236,112,99);
 }
 
+.about {
+  margin-bottom: 20px;
+  background-color: white;
+  text-align: center;
+}
+
 .welcome{
   margin-top: -15px;
   margin-bottom: 20px;
