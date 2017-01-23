@@ -27,7 +27,7 @@ Guided hotel rooms’ tours via Twilio video.
 
 
 **Technology implemented:**
-    -   Twilio video and chat API
+    -   Twilio video API
     -   Node.js
     -   Javascript
     -   PostgreSQL
