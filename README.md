@@ -2,6 +2,8 @@
 
 ![project4](http://i.imgur.com/CbQKitT.png)
 
+Access it here: https://quiet-bastion-57951.herokuapp.com/
+
 An online platform that facilitates direct communication between hospitality professionals and their guests.
 
 Guided hotel rooms’ tours via Twilio video.
