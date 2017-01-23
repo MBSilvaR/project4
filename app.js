@@ -240,13 +240,13 @@ app.get("/hotel_profile", function(req, res) {
   res.render('hotel_profile/index')
 });
 
-app.get("/profile", function(req, res) {
-  var data = {
-    "logged_in": logged_in,
-    "email": email
-  }
-  res.render('profile/index', data)
-});
+// app.get("/profile", function(req, res) {
+//   var data = {
+//     "logged_in": logged_in,
+//     "email": email
+//   }
+//   res.render('profile/index', data)
+// });
 
 app.get("/notfound", function(req, res) {
   res.render('notfound/index')
