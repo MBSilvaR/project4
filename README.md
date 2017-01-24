@@ -30,12 +30,19 @@ Guided hotel rooms’ tours via Twilio video.
 
 
 **Technology implemented:**
-    -   Twilio video API
-    -   Node.js
-    -   Javascript
-    -   PostgreSQL
-    -   Bootstrap
+    -   Twilio video API: To allow communication between multiple parties, in this case potential hotel guests and hotel staff
+    -   Node.js and Express.js: Server side development
+    -   Javascript: Front end development
+    -   PostgreSQL: For signup/login purposes
+    -   Bootstrap: Styling
+
+**Wireframe:** http://imgur.com/a/pJaob
 
 **Access it here:** https://quiet-bastion-57951.herokuapp.com/
 
+**Problems to be solved:**
+    - Creating accounts linked to one particular channel (for hotels)
+    - Create customizable profiles for both hotels and guests
+    - Create a Search bar
+    - Allow guests to save hotels to their personal profiles
 
